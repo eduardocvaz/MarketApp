@@ -31,7 +31,6 @@ public class DBHelper extends SQLiteOpenHelper {
           String nome;
           String cpf;
           CEP cep;*/
-
         String sql = "CREATE TABLE IF NOT EXISTS " + TABELA_USUARIOS
                 + "(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                 + "nome VARCHAR(50) NOT NULL,"
