@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarketApp">
         <activity
+            android:name=".CadastrarProdutoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
