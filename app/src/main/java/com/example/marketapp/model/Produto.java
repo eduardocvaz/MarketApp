@@ -11,6 +11,18 @@ public class Produto {
     private String descricao;
     private Double valor;
 
+    public Produto() {
+
+    }
+
+    public Produto(Long id, String fotoURL, String nome, String descricao, Double valor) {
+        this.id = id;
+        this.fotoURL = fotoURL;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+
     public Long getId() {
         return id;
     }
