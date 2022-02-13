@@ -138,9 +138,15 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
 
                 }
 
+                etNome.setText(null);
+                etCpf.setText(null);
+                etCep.setText(null);
 
-
-
+                etRua.setText(null);
+                etNumero.setText(null);
+                etBairro.setText(null);
+                etCidade.setText(null);
+                etEstado.setText(null);
 
             }
         });

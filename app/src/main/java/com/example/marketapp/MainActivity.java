@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
 //        cepServiceImplementation.httpRequestCall("01001000");
 
         inflarLista();
+//
+//        bt_pg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent it = new Intent(getApplicationContext(), PagamentoActivity.class);
+//                startActivity(it);
+//            }
+//        });
 
     }
 
