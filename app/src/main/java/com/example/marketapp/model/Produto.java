@@ -1,6 +1,10 @@
 package com.example.marketapp.model;
 
-public class Produto {
+import java.io.Serializable;
+import java.net.URI;
+import java.net.URL;
+
+public class Produto implements Serializable {
 
     /* carregar um ImageView por URL
     https://qastack.com.br/programming/2471935/how-to-load-an-imageview-by-url-in-android*/

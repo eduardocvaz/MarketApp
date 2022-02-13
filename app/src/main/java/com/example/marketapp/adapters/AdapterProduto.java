@@ -1,5 +1,7 @@
 package com.example.marketapp.adapters;
 
+import android.app.Activity;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.marketapp.R;
 import com.example.marketapp.model.Produto;
 
+import java.net.URL;
 import java.util.List;
 
 public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MinhaViewHolder> {
@@ -39,7 +42,8 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MinhaVie
 
          holder.tvNome.setText(produto.getNome());
          holder.tvValor.setText(String.valueOf(produto.getValor()));
-         holder.ivImagem.setImageURI(Uri.parse(produto.getFotoURL()));
+         holder.ivImagem.setImageResource(R.drawable.copo);
+
     }
 
     @Override
@@ -47,19 +51,33 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MinhaVie
         return listaProdutos.size();
     }
 
-    public class MinhaViewHolder extends RecyclerView.ViewHolder{
+    public class MinhaViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView ivImagem;
         TextView tvNome;
         TextView tvValor;
         Button btnAdd;
         CardView cvItem;
-        public MinhaViewHolder(View itemView){
+        public MinhaViewHolder(View itemView) {
             super(itemView);
             tvNome = itemView.findViewById(R.id.tvNomeRV);
             ivImagem = itemView.findViewById(R.id.ivImagemRV);
             tvValor = itemView.findViewById(R.id.tvValorRV);
             btnAdd = itemView.findViewById(R.id.btnAddRV);
             cvItem = itemView.findViewById(R.id.cvItem);
+            cvItem.setOnClickListener(this);
+
         }
+
+        @Override
+        public void onClick(View v) {
+            listener.cliclouNoElemento(getLayoutPosition());
+        }
+    }
+    public interface AoClicarNoBotao{
+        void cliclouNoElemento(int position);
+    }
+    private AoClicarNoBotao listener;
+    public void implementaAoClicarNoBotao(AoClicarNoBotao listener){
+        this.listener = listener;
     }
 }

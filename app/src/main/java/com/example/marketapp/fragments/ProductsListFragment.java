@@ -1,5 +1,7 @@
 package com.example.marketapp.fragments;
 
+import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,16 +12,20 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.marketapp.R;
 import com.example.marketapp.adapters.AdapterProduto;
 import com.example.marketapp.model.Produto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ProductsListFragment extends Fragment {
+
+    public static final String PRODUTOS = "produtos";
 
     RecyclerView rvProdutos;
 
@@ -27,10 +33,30 @@ public class ProductsListFragment extends Fragment {
 
     AdapterProduto adapterProduto;
 
+    public static ProductsListFragment newInstance(ArrayList<Produto> produtos) {
+        ProductsListFragment productsListFragment = new ProductsListFragment();
+        Bundle args =new Bundle();
+        args.putInt("TamanhoLista",produtos.size());
+
+        for(int i=0; i< produtos.size(); i++){
+            args.putSerializable(String.valueOf(i),produtos.get(i));
+        }
+        productsListFragment.setArguments(args);
+        return productsListFragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(getArguments()!=null){
+            int tam = getArguments().getInt("TamanhoLista");
+            ArrayList<Produto> produtos = new ArrayList<Produto>();
+            for(int i=0; i<tam;i++) {
+                Produto produto = (Produto) getArguments().getSerializable(String.valueOf(i));
+                produtos.add(produto);
+            }
+            mProdutos = produtos;
+        }
 
     }
 
@@ -40,21 +66,28 @@ public class ProductsListFragment extends Fragment {
         // Inflate the layout for this fragment
         View layout =inflater.inflate(R.layout.fragment_products_list, container, false);
         rvProdutos = layout.findViewById(R.id.rv_Lista);
-        mProdutos = carregaProdutos();
         adapterProduto = new AdapterProduto(mProdutos);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rvProdutos.setLayoutManager(layoutManager);
         rvProdutos.setHasFixedSize(true);
         rvProdutos.setAdapter(adapterProduto);
+
+        adapterProduto.implementaAoClicarNoBotao(new AdapterProduto.AoClicarNoBotao() {
+            @Override
+            public void cliclouNoElemento(int position) {
+                Activity activity = getActivity();
+
+                if(activity instanceof AoClicarNoProduto){
+                    AoClicarNoProduto listener = (AoClicarNoProduto) activity;
+                    listener.clicouNoProduto(mProdutos.get(position));
+                }
+            }
+        });
+
         return layout;
     }
-    private List<Produto> carregaProdutos(){
-        List<Produto> produtos = new ArrayList<>();
-
-        produtos.add(new Produto(Long.valueOf(1),"https://cdn.awsli.com.br/600x700/469/469651/produto/32288602/c2540b39b3.jpg","Copo","Copo Comum",10.00));
-        produtos.add(new Produto(Long.valueOf(2),"https://m.media-amazon.com/images/I/516P3MaLPfL._AC_SY355_.jpg","Bacia","Bacia Comum",30.00));
-        produtos.add(new Produto(Long.valueOf(3),"https://hiperideal.vteximg.com.br/arquivos/ids/167660-1000-1000/27502.jpg?v=636615816147030000","Batata","Batata Comum",0.50));
-
-        return produtos;
+    public interface AoClicarNoProduto{
+        public void clicouNoProduto(Produto produto);
     }
+
 }
