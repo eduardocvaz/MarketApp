@@ -50,26 +50,31 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
-
+        Intent it;
         switch(item.getItemId()){
             case R.id.acao_adicionar:
+                 it = new Intent(this,CadastrarProdutoActivity.class);
+                startActivityForResult(it,0);
 //                ProdutoDialogFragment produtoDialogFragment =
 //                        ProdutoDialog.newInstance();
 //                produtoDialogFragment.show(myFragmentManager,ProdutoDialogFragment.Dialog_TAG);
+                break;
 
             case R.id.acao_login:
 //                LoginDialogFragment loginDialogFragment =
 //                        LoginDialog.newInstance();
 //                loginDialogFragment.show(myFragmentManager,LoginDialogFragment.Dialog_TAG);
+                break;
 
             case R.id.carrinho:
-                Intent it = new Intent(this,CarrinhoActivity.class);
+                 it = new Intent(this,CarrinhoActivity.class);
                 it.putExtra("SizeLista",produtosSelecionados.size());
                 for(int i=0; i< produtosSelecionados.size(); i++){
                     it.putExtra(String.valueOf(i),produtosSelecionados.get(i));
                 }
 
                 startActivityForResult(it,0);
+                break;
 
             default:
                 break;
