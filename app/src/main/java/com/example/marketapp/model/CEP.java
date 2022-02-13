@@ -11,6 +11,10 @@ public class CEP {
       "bairro": "Sé",
       "localidade": "São Paulo",
       "uf": "SP",
+
+
+
+
       "ibge": "3550308",
       "gia": "1004",
       "ddd": "11",
@@ -102,6 +106,20 @@ public class CEP {
     public String getSiafi() { return siafi; }
 
     public void setSiafi(String siafi) { this.siafi = siafi; }
+
+
+    public boolean isEmpty(){
+
+        if(cep.isEmpty() && logradouro.isEmpty() && bairro.isEmpty()
+        && localidade.isEmpty() && uf.isEmpty()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
 
 
     @Override

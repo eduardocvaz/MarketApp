@@ -44,6 +44,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MinhaVie
 
          holder.tvNome.setText(produto.getNome());
          holder.tvValor.setText(String.valueOf(produto.getValor()));
+
          Picasso.get().load(produto.getFotoURL()).into(holder.ivImagem);
     }
 
