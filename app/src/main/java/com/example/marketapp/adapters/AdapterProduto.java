@@ -42,7 +42,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MinhaVie
 
          holder.tvNome.setText(produto.getNome());
          holder.tvValor.setText(String.valueOf(produto.getValor()));
-         holder.ivImagem.setImageResource(R.drawable.copo);
+//         holder.ivImagem.setImageResource(R.drawable.copo);
 
     }
 

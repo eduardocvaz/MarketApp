@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 import com.example.marketapp.fragments.ProductsListFragment;
@@ -43,11 +45,6 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
             }
         });
 
-        CEPServiceImplementation cepServiceImplementation = new CEPServiceImplementation();
-        cepServiceImplementation.httpRequestCall("01001000");
-
-
-
     }
 
     @Override
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
         Intent it;
         switch(item.getItemId()){
             case R.id.acao_adicionar:
-                 it = new Intent(this,CadastrarProdutoActivity.class);
+                it = new Intent(this,CadastrarProdutoActivity.class);
                 startActivityForResult(it,0);
 //                ProdutoDialogFragment produtoDialogFragment =
 //                        ProdutoDialog.newInstance();
@@ -70,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
                 break;
 
             case R.id.acao_login:
+                it = new Intent(this,CadastrarUsuarioActivity.class);
+                startActivity(it);
 //                LoginDialogFragment loginDialogFragment =
 //                        LoginDialog.newInstance();
 //                loginDialogFragment.show(myFragmentManager,LoginDialogFragment.Dialog_TAG);

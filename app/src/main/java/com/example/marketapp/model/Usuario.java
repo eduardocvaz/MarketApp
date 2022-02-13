@@ -8,6 +8,7 @@ public class Usuario {
     private String cpf;
     private CEP cep;
 
+
     public Long getId() {
         return id;
     }

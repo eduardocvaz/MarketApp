@@ -87,7 +87,7 @@ public class CEPDAO {
         try{
             Cursor c = le.rawQuery(sql, null);
 
-                /*   Long id;
+    /*  Long id;
          String cep;
          String logradouro;
          String complemento;
