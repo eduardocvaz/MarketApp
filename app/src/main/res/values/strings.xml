@@ -1,4 +1,16 @@
 <resources>
-    <string name="app_name">MarketApp</string>
+    <string name="app_name">Market App</string>
     <string name="teste">Teste</string>
+
+    <!-- Textos usados na Activity Pagamento -->
+    <string name="num_cartao">NÚMERO DO CARTÃO:</string>
+    <string name="dig_num">Digite somente números</string>
+    <string name="tit_cartao">TITULAR DO CARTÃO:</string>
+    <string name="nome_impresso">Digite o nome como impresso no cartão</string>
+    <string name="data_validade">DATA DE VALIDADE:</string>
+    <string name="code_seg">CÓDIGO DE SEGURANÇA:</string>
+    <string name="final_pay">Finalizar Pagamento</string>
+    <string name="mes_ano">MM/AA</string>
+    <string name="digitos_c">3 dígitos</string>
+
 </resources>
