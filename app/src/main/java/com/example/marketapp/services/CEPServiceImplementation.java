@@ -49,11 +49,7 @@ public class CEPServiceImplementation {
                 Log.e("onFailure resultado", "Erro: " + t.getMessage());
             }
         });
-
-
-
-
-
     }
+
 
 }

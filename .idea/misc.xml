@@ -4,6 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Eduardo Vaz/Documents/Nova pasta/MarketApp/app/src/main/res/layout/activity_pagamento.xml" value="0.22" />
+        <entry key="..\:/Users/Marcos/Documents/GitHub/MarketApp/app/src/main/res/layout/activity_cadastrar_produto.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/Marcos/Documents/GitHub/MarketApp/app/src/main/res/layout/activity_cadastrar_usuario.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/Marcos/Documents/GitHub/MarketApp/app/src/main/res/layout/activity_carrinho.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/Marcos/Documents/GitHub/MarketApp/app/src/main/res/layout/activity_main.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/Marcos/Documents/GitHub/MarketApp/app/src/main/res/layout/elemento_lista.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/Marcos/Documents/GitHub/MarketApp/app/src/main/res/layout/fragment_products_list.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/drawable/ic_login.xml" value="0.1" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/layout/activity_cadastrar_produto.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/layout/activity_carrinho.xml" value="0.1111111111111111" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/layout/elemento_lista.xml" value="0.33" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/layout/fragment_carrinho_dialog.xml" value="0.26875" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/layout/fragment_products_list.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/Victor Bittencourt/AndroidStudioProjects/MarketApp/app/src/main/res/menu/menu_carrinho.xml" value="0.33" />
       </map>
     </option>
   </component>

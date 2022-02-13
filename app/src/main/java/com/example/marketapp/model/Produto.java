@@ -1,6 +1,10 @@
 package com.example.marketapp.model;
 
-public class Produto {
+import java.io.Serializable;
+import java.net.URI;
+import java.net.URL;
+
+public class Produto implements Serializable {
 
     /* carregar um ImageView por URL
     https://qastack.com.br/programming/2471935/how-to-load-an-imageview-by-url-in-android*/
@@ -10,6 +14,18 @@ public class Produto {
     private String nome;
     private String descricao;
     private Double valor;
+
+    public Produto() {
+
+    }
+
+    public Produto(Long id, String fotoURL, String nome, String descricao, Double valor) {
+        this.id = id;
+        this.fotoURL = fotoURL;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
 
     public Long getId() {
         return id;

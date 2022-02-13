@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarketApp">
         <activity
+            android:name=".CarrinhoActivity"
+            android:exported="false" />
+        <activity
             android:name=".PagamentoActivity"
             android:exported="false" />
         <activity
