@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2FC8D8DF"
+    tools:context=".PagamentoActivity">
+
+    <ImageButton
+        android:id="@+id/ibt_Voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/purple_500"
+        app:layout_constraintEnd_toStartOf="@+id/ivCard"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <ImageView
+        android:id="@+id/ivCard"
+        android:layout_width="98dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_card" />
+
+    <TextView
+        android:id="@+id/tv_numCartao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/num_cartao"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivCard" />
+
+    <EditText
+        android:id="@+id/et_NumCartao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/dig_num"
+        android:inputType="numberSigned"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_numCartao"
+        app:layout_constraintStart_toStartOf="@+id/tv_numCartao"
+        app:layout_constraintTop_toBottomOf="@+id/tv_numCartao" />
+
+    <TextView
+        android:id="@+id/tv_Nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/tit_cartao"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_NumCartao" />
+
+    <EditText
+        android:id="@+id/et_Nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="16"
+        android:gravity="center"
+        android:hint="@string/nome_impresso"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Nome"
+        app:layout_constraintStart_toStartOf="@+id/tv_Nome"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Nome" />
+
+    <TextView
+        android:id="@+id/tv_dataVencimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/data_validade"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/et_Nome"
+        app:layout_constraintTop_toBottomOf="@+id/et_Nome" />
+
+    <EditText
+        android:id="@+id/et_dataVenc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:ems="6"
+        android:gravity="center|fill_horizontal"
+        android:hint="@string/mes_ano"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dataVencimento"
+        app:layout_constraintEnd_toEndOf="@+id/et_Nome"
+        app:layout_constraintStart_toEndOf="@+id/tv_dataVencimento"
+        app:layout_constraintTop_toTopOf="@+id/tv_dataVencimento"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <TextView
+        android:id="@+id/tv_segCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="@string/code_seg"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_dataVencimento"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dataVencimento" />
+
+    <EditText
+        android:id="@+id/et_codigoC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="5"
+        android:gravity="center"
+        android:hint="@string/digitos_c"
+        android:inputType="numberSigned"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_segCode"
+        app:layout_constraintEnd_toEndOf="@+id/et_dataVenc"
+        app:layout_constraintStart_toEndOf="@+id/tv_segCode"
+        app:layout_constraintTop_toTopOf="@+id/tv_segCode"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_codigoC"
+        tools:context=".PagamentoActivity"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btPagar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#20C627"
+            android:text="FINALIZAR A COMPRA"
+            android:textColor="#031C47"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_codigoC" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
