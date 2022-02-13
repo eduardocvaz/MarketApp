@@ -12,4 +12,6 @@
         android:name="com.example.marketapp.fragments.ProductsListFragment"
         android:id="@+id/fragmentLista"/>
 
+
 </LinearLayout>
+

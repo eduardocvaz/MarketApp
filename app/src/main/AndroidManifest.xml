@@ -15,6 +15,9 @@
             android:name=".CarrinhoActivity"
             android:exported="false" />
         <activity
+            android:name=".PagamentoActivity"
+            android:exported="false" />
+        <activity
             android:name=".CadastrarProdutoActivity"
             android:exported="false" />
         <activity

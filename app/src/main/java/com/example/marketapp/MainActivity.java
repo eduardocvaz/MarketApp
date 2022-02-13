@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
     private FragmentManager myFragmentManager;
 
 
+    private Button bt_pg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,13 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
         myFragmentManager =getSupportFragmentManager();
         productsListFragment = (ProductsListFragment) myFragmentManager.findFragmentById(R.id.fragmentLista);
 
+        bt_pg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(), PagamentoActivity.class);
+                startActivity(it);
+            }
+        });
 
         CEPServiceImplementation cepServiceImplementation = new CEPServiceImplementation();
         cepServiceImplementation.httpRequestCall("01001000");
