@@ -14,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.example.marketapp.R;
 import com.example.marketapp.model.Produto;
+import com.squareup.picasso.Picasso;
 
 import java.net.URL;
 import java.util.List;
@@ -42,8 +44,8 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MinhaVie
 
          holder.tvNome.setText(produto.getNome());
          holder.tvValor.setText(String.valueOf(produto.getValor()));
-//         holder.ivImagem.setImageResource(R.drawable.copo);
 
+         Picasso.get().load(produto.getFotoURL()).into(holder.ivImagem);
     }
 
     @Override

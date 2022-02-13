@@ -57,8 +57,9 @@ public class CadastrarProdutoActivity extends AppCompatActivity {
                 } else {
                     Produto produto = new Produto();
 
-                    produto.setFotoURL(url);
+                    
                     produto.setNome(nome);
+                    produto.setFotoURL(url);
                     produto.setValor(valor);
                     produto.setDescricao(descricao);
 

@@ -3,7 +3,9 @@ package com.example.marketapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 
 
+import com.example.marketapp.dao.ProdutoDAO;
 import com.example.marketapp.fragments.ProductsListFragment;
 import com.example.marketapp.model.Produto;
 import com.example.marketapp.services.CEPServiceImplementation;
@@ -27,23 +30,19 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
     private FragmentManager myFragmentManager;
 
 
-    private Button bt_pg;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         produtosSelecionados = new ArrayList<Produto>();
         myFragmentManager =getSupportFragmentManager();
-        productsListFragment = (ProductsListFragment) myFragmentManager.findFragmentById(R.id.fragmentLista);
 
-        bt_pg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(getApplicationContext(), PagamentoActivity.class);
-                startActivity(it);
-            }
-        });
+//        productsListFragment = (ProductsListFragment) myFragmentManager.findFragmentById(R.id.fragmentLista);=
+//
+//        CEPServiceImplementation cepServiceImplementation = new CEPServiceImplementation();
+//        cepServiceImplementation.httpRequestCall("01001000");
+
+        inflarLista();
 
     }
 
@@ -93,5 +92,27 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
     @Override
     public void clicouNoProduto(Produto produto) {
         produtosSelecionados.add(produto);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+
+        dialog.setTitle("Aviso");
+        dialog.setMessage("Produto adicionado ao carrinho!");
+        dialog.setNeutralButton("Ok",null);
+        dialog.create();
+        dialog.show();
+
+    }
+
+    public void inflarLista(){
+        productsListFragment = ProductsListFragment.newInstance((ArrayList<Produto>) new ProdutoDAO(getApplicationContext()).listar());
+        myFragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = myFragmentManager.beginTransaction();
+        ft.replace(R.id.fragmentLista,productsListFragment,ProductsListFragment.PRODUTOS);
+        ft.commit();
+    }
+
+    @Override
+    protected void onStart() {
+        this.inflarLista();
+        super.onStart();
     }
 }

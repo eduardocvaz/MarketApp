@@ -14,7 +14,7 @@ import com.example.marketapp.model.Produto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarrinhoActivity extends AppCompatActivity {
+public class CarrinhoActivity extends AppCompatActivity implements ProductsListFragment.AoClicarNoProduto{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +33,18 @@ public class CarrinhoActivity extends AppCompatActivity {
         ft.commit();
 
     }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_carrinho, menu);
 
         return true;
+    }
+
+    @Override
+    public void clicouNoProduto(Produto produto) {
+
     }
 }

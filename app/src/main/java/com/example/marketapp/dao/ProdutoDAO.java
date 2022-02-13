@@ -29,7 +29,7 @@ public class ProdutoDAO {
 
         ContentValues cv = new ContentValues();
         cv.put("fotoURL",produto.getFotoURL());
-        cv.put("nome",produto.getFotoURL());
+        cv.put("nome",produto.getNome());
         cv.put("descricao",produto.getDescricao());
         cv.put("valor",produto.getValor());
 
@@ -115,7 +115,7 @@ public class ProdutoDAO {
         try{
             //id do registro que será deletado
             String[] args = {produto.getId().toString()};
-            escreve.delete(DBHelper.TABELA_USUARIOS,"id=?",args);
+            escreve.delete(DBHelper.TABELA_PRODUTOS,"id=?",args);
             Log.i("INFO","Registro apagado com sucesso da tabela produtos!");
         }catch(Exception e){
             Log.i("INFO","Erro apagar registro da tabela produtos!"+e.getMessage());
