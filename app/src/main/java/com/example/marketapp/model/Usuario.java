@@ -3,6 +3,7 @@ package com.example.marketapp.model;
 public class Usuario {
 
     private Long id;
+
     private String nome;
     private String cpf;
     private CEP cep;
@@ -38,4 +39,6 @@ public class Usuario {
     public void setCep(CEP cep) {
         this.cep = cep;
     }
+
+
 }
