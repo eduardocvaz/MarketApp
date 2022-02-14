@@ -1,5 +1,6 @@
 package com.example.marketapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -7,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.marketapp.fragments.ProductsListFragment;
 import com.example.marketapp.model.Produto;
@@ -41,6 +43,29 @@ public class CarrinhoActivity extends AppCompatActivity implements ProductsListF
         getMenuInflater().inflate(R.menu.menu_carrinho, menu);
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        Intent it;
+        switch(item.getItemId()){
+            case R.id.acao_cadastrar:
+                it = new Intent(this,CadastrarUsuarioActivity.class);
+                startActivityForResult(it,0);
+                break;
+
+            case R.id.acao_login:
+                it = new Intent(this,CadastrarUsuarioActivity.class);
+                startActivity(it);
+//                LoginDialogFragment loginDialogFragment =
+//                        LoginDialog.newInstance();
+//                loginDialogFragment.show(myFragmentManager,LoginDialogFragment.Dialog_TAG);
+                break;
+
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

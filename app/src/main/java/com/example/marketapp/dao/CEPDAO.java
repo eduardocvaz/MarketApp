@@ -86,6 +86,48 @@ public class CEPDAO {
 
         try{
             Cursor c = le.rawQuery(sql, null);
+            c.moveToFirst();
+
+    /*  Long id;
+         String cep;
+         String logradouro;
+         String complemento;
+         String bairro;
+         String localidade;
+         String uf;*/
+
+            Long myid = c.getLong( c.getColumnIndexOrThrow("id") );
+            String Mycep = c.getString(c.getColumnIndexOrThrow("cep"));
+            String logradouro = c.getString(c.getColumnIndexOrThrow("logradouro"));
+            String complemento = c.getString(c.getColumnIndexOrThrow("complemento"));
+            String bairro = c.getString(c.getColumnIndexOrThrow("bairro"));
+            String localidade = c.getString(c.getColumnIndexOrThrow("localidade"));
+            String uf = c.getString(c.getColumnIndexOrThrow("uf"));
+
+            cep.setId(myid);
+            cep.setCep(Mycep);
+            cep.setLogradouro(logradouro);
+            cep.setComplemento(complemento);
+            cep.setBairro(bairro);
+            cep.setLocalidade(localidade);
+            cep.setUf(uf);
+            c.close();
+            Log.i("INFO","O objeto recuperado com sucesso da tabela usuarios!");
+        }catch(Exception e){
+            Log.i("INFO","Erro recuperar registro da tabela usuarios!"+e.getMessage());
+            return null;
+        }
+
+        return cep;
+    }
+
+    public CEP buscarPorCep(String cepId) {
+        String sql = "SELECT * FROM " +DBHelper.TABELA_CEPS + " WHERE cep='"+cepId+"';";
+        CEP cep = new CEP();
+
+        try{
+            Cursor c = le.rawQuery(sql, null);
+            c.moveToFirst();
 
     /*  Long id;
          String cep;

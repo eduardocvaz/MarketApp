@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/acao_login"
-        android:title="Login"
-        android:icon="@drawable/ic_login"
-        app:showAsAction="always"
-        />
-    <item android:id="@+id/acao_cadastrar"
+    <item android:id="@+id/acao_pagamento"
         android:title="carrinho"
         android:icon="@drawable/ic_check"
         app:showAsAction="always"/>

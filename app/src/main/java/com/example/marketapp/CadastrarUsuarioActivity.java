@@ -1,15 +1,19 @@
 package com.example.marketapp;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,8 +40,10 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
 
     private Button btCadastrar;
 
-
+    private Usuario usuario = new Usuario();
     private CEP armazenarCepUsuario = new CEP();
+
+    private boolean atualizar = false;
 
 
     @Override
@@ -103,23 +109,39 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
                 }
                 else {
 
-                    Usuario usuario = new Usuario();
+
+                    armazenarCepUsuario.setCep(etCep.getText().toString());
+                    armazenarCepUsuario.setLogradouro(etRua.getText().toString());
+                    armazenarCepUsuario.setLocalidade(etCidade.getText().toString());
+                    armazenarCepUsuario.setBairro(etBairro.getText().toString());
+                    armazenarCepUsuario.setUf(etEstado.getText().toString());
 
 
                     usuario.setNome(nome);
                     usuario.setCpf(cpf);
-                    usuario.setCep(armazenarCepUsuario);
+
+
 
                     // salvar cep no banco de dados
-                    if(!new CEPDAO(getApplicationContext()).salvar(armazenarCepUsuario)){
+                    if(atualizar) {
+
+                        new CEPDAO(getApplicationContext()).atualizar(armazenarCepUsuario);
+                    }
+                    else if(!new CEPDAO(getApplicationContext()).salvar(armazenarCepUsuario)){
                         Log.i("TAG", "Erro ao cadastrar cep no banco de dados");
+                    } else {
+                        Log.i("TAG", "cep cadastrado com sucesso");
                     }
 
-                    Log.i("TAG", "cep cadastrado com sucesso");
 
+
+                    usuario.setCep(new CEPDAO(getApplicationContext()).buscarPorCep(armazenarCepUsuario.getCep()));
 
                     //salvar usuario no banco de dados
-                    if(!new UsuarioDAO(getApplicationContext()).salvar(usuario)){
+                    if(atualizar) {
+                        new UsuarioDAO(getApplicationContext()).atualizar(usuario);
+                    }
+                    else if(!new UsuarioDAO(getApplicationContext()).salvar(usuario)){
                         dialog.setTitle("Aviso");
                         dialog.setMessage("Erro ao cadastrar no banco de dados");
                         dialog.setNeutralButton("Ok",null);
@@ -138,10 +160,6 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
 
                 }
 
-
-
-
-
             }
         });
 
@@ -149,7 +167,26 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cadastro, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        Intent it;
+        switch(item.getItemId()){
+            case R.id.acao_pagamento:
+                it = new Intent(this,PagamentoActivity.class);
+                startActivityForResult(it,0);
+                break;
+
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     public void httpRequestCall(String codigoCEP){
@@ -187,15 +224,6 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
                     String bairro;
                     String localidade;
                     String uf;  */
-
-                    if(!cep.isEmpty()){
-                        armazenarCepUsuario.setCep(cep.getCep());
-                        armazenarCepUsuario.setLogradouro(cep.getLogradouro());
-                        armazenarCepUsuario.setComplemento(cep.getComplemento());
-                        armazenarCepUsuario.setBairro(cep.getBairro());
-                        armazenarCepUsuario.setLocalidade(cep.getLocalidade());
-                        armazenarCepUsuario.setUf(cep.getUf());
-                    }
 
 
                 }

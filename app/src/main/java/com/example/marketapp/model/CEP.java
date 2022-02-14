@@ -29,13 +29,20 @@ public class CEP {
     private String complemento;
     private String bairro;
     private String localidade;
+    private String Numero;
     private String uf;
     private String ibge;
     private String gia;
     private String ddd;
     private String siafi;
 
+    public String getNumero() {
+        return Numero;
+    }
 
+    public void setNumero(String numero) {
+        Numero = numero;
+    }
 
     public Long getId() { return id; }
 

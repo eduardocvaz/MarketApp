@@ -60,9 +60,7 @@ public class MainActivity extends AppCompatActivity implements ProductsListFragm
             case R.id.acao_adicionar:
                 it = new Intent(this,CadastrarProdutoActivity.class);
                 startActivityForResult(it,0);
-//                ProdutoDialogFragment produtoDialogFragment =
-//                        ProdutoDialog.newInstance();
-//                produtoDialogFragment.show(myFragmentManager,ProdutoDialogFragment.Dialog_TAG);
+
                 break;
 
             case R.id.acao_login:

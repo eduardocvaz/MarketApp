@@ -57,14 +57,12 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MinhaVie
         ImageView ivImagem;
         TextView tvNome;
         TextView tvValor;
-        Button btnAdd;
         CardView cvItem;
         public MinhaViewHolder(View itemView) {
             super(itemView);
             tvNome = itemView.findViewById(R.id.tvNomeRV);
             ivImagem = itemView.findViewById(R.id.ivImagemRV);
             tvValor = itemView.findViewById(R.id.tvValorRV);
-            btnAdd = itemView.findViewById(R.id.btnAddRV);
             cvItem = itemView.findViewById(R.id.cvItem);
             cvItem.setOnClickListener(this);
 

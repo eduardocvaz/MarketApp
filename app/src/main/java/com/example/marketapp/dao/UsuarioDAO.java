@@ -122,6 +122,7 @@ public class UsuarioDAO {
 
         try{
             Cursor c = le.rawQuery(sql, null);
+            c.moveToFirst();
 
             Long id = c.getLong( c.getColumnIndexOrThrow("id") );
             String nome = c.getString(c.getColumnIndexOrThrow("nome"));
